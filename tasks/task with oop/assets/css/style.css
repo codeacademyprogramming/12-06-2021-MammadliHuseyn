@@ -21,6 +21,10 @@ a:hover {
   color: #000;
 }
 
+h1, h2 {
+  font-size: 48px;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -64,7 +68,7 @@ header .nav {
 
 .btn-primary-circle {
   background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%);
-  padding: 7px 12px;
+  padding: 12px;
   border-radius: 100%;
 }
 
@@ -89,7 +93,7 @@ header .nav {
 }
 
 section#hero {
-  background: url("/assets/img/hero-section-bg.png") no-repeat center/cover;
+  background: url("../img/hero-section-bg.png") no-repeat center/cover;
   height: 130vh;
 }
 
@@ -98,6 +102,7 @@ section#hero .hero-section {
 }
 
 #dishes .pizza-card {
+  position: relative;
   padding: 5%;
   border: 2px solid #ECEEF6;
   border-radius: 15px;
@@ -108,6 +113,77 @@ section#hero .hero-section {
   font-size: 24px;
 }
 
+#dishes .pizza-card .card-add {
+  background-color: #fff;
+  padding: 5px 15px 15px 15px;
+  border-radius: 100%;
+  position: absolute;
+  left: 35%;
+  top: 90%;
+  border-bottom: 2px solid #ECEEF6;
+}
+
+#dishes .pizza-card .card-add .wrapper {
+  padding: 15px 20px;
+  border: 2px solid #ECEEF6;
+  position: relative;
+  border-radius: 50%;
+  top: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#dishes .pizza-card .card-add .wrapper i {
+  background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#dishes .pizza-card .card-add .wrapper:hover {
+  background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%);
+}
+
+#dishes .pizza-card .card-add .wrapper:hover i {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+
 #dishes h2 {
   font-size: 48px;
+}
+
+footer {
+  position: relative;
+  margin-top: 5%;
+  padding-top: 5%;
+  background-image: url("../img/footer-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+footer form {
+  padding-top: 10%;
+  justify-content: space-around;
+}
+
+footer form input {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+footer form button {
+  padding: 10px 50px !important;
+}
+
+footer form button i {
+  margin-left: 25%;
+}
+
+footer .downfooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
