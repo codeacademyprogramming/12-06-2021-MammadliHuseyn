@@ -1,0 +1,113 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background: transparent;
+}
+
+header .col-4 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+header li {
+  margin-right: 30px;
+}
+
+header .nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3%;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: none;
+}
+
+/*Buttons with theme*/
+.btn-primary {
+  background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.btn-primary-circle {
+  background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%);
+  padding: 7px 12px;
+  border-radius: 100%;
+}
+
+.f-300 {
+  font-weight: 300;
+}
+
+.f-400 {
+  font-weight: 400;
+}
+
+.f-500 {
+  font-weight: 500;
+}
+
+.f-600 {
+  font-weight: 600;
+}
+
+.f-700 {
+  font-weight: 700;
+}
+
+section#hero {
+  background: url("/assets/img/hero-section-bg.png") no-repeat center/cover;
+  height: 130vh;
+}
+
+section#hero .hero-section {
+  padding-top: 30vh;
+}
+
+#dishes .pizza-card {
+  padding: 5%;
+  border: 2px solid #ECEEF6;
+  border-radius: 15px;
+}
+
+#dishes .pizza-card .price {
+  color: #121146;
+  font-size: 24px;
+}
+
+#dishes h2 {
+  font-size: 48px;
+}
