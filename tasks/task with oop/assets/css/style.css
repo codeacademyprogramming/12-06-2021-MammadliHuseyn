@@ -25,6 +25,11 @@ h1, h2 {
   font-size: 48px;
 }
 
+img#loading {
+  width: 50%;
+  margin-left: 25%;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -107,6 +112,7 @@ section#hero .hero-section {
 
 #dishes .pizza-card {
   position: relative;
+  height: 100%;
   padding: 5%;
   border: 2px solid #ECEEF6;
   border-radius: 15px;
@@ -154,6 +160,10 @@ section#hero .hero-section {
 
 #dishes h2 {
   font-size: 48px;
+}
+
+#dishes #pizzas .col-3 {
+  margin-bottom: 2rem;
 }
 
 .cart {
@@ -209,6 +219,7 @@ footer {
   background-image: url("../img/footer-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 
