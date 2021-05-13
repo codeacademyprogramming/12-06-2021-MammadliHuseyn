@@ -23,7 +23,7 @@ export class Basket {
     }
 
     static isBasketEmpty() {
-        if (!this.getBasket() && JSON.parse(this.getBasket().length) > 1)
+        if (!this.getBasket())
             return true;
         else
             return false;
