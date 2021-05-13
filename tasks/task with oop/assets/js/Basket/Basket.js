@@ -23,7 +23,7 @@ export class Basket {
     }
 
     static isBasketEmpty() {
-        if (!this.getBasket())
+        if (!this.getBasket() && JSON.parse(this.getBasket().length) > 1)
             return true;
         else
             return false;
@@ -56,7 +56,8 @@ export class Basket {
     static renderBasket(basketId) {
         const pizzas = JSON.parse(this.getBasket());
         let basketOnDom = document.getElementById(basketId);
-        basketOnDom.innerHTML = !this.isBasketEmpty() ? "<h4>Your Cart</h4>" : "<h4>Cart is empty! :(</h4>";
+        basketOnDom.innerHTML = !this.isBasketEmpty() ? "<h4>Your Cart</h4>" : "<h4>Cart is empty! :(((</h4>";
+        if (this.isBasketEmpty()) { basketOnDom.innerHTML = "<h4>Your Cart</h4>" };
         if (!this.isBasketEmpty()) {
             pizzas.forEach(pizza => {
                 basketOnDom.innerHTML += `
@@ -71,16 +72,25 @@ export class Basket {
                                         <strong>size: 32</strong>
                                     </div>
                                         <strong>${pizza.price * pizza.count} <sup>AZN</sup></strong>
+                                        <button class="btn btn-primary-circle btn-remove-card-item" data-id="${pizza.id}"><i class="fas fa-times"> </i></button>
                                     </div>
                                 </div>
                                 `
             });
         }
 
-        const btnCart = document.getElementById("cart");
-        const cartContent = document.getElementById(basketId);
+        const btnDelete = document.getElementsByClassName("btn-remove-card-item");
+        Array.prototype.forEach.call(btnDelete, (btn) => {
+            btn.addEventListener('click', () => { this.deleteCardFromBasket(btn.getAttribute('data-id')) })
+        })
 
-        btnCart.addEventListener('click', () => { cartContent.classList.toggle("d-none") });
+    }
+
+    static deleteCardFromBasket(id) {
+        let basket = JSON.parse(this.getBasket());
+        basket = basket.filter(p => p.id != id);
+        storage.setItem(keys.CART_BASKET, JSON.stringify(basket));
+        this.renderBasket("cart-content");
     }
 
 }
