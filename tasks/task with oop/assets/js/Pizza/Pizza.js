@@ -1,12 +1,12 @@
-import { STORAGE_KEYS as keys } from "../Storage/Consts.js";
-import { storage } from "../Storage/Storage.js";
 import { pizzaApi } from "./../PizzaApi/PizzaApi.js";
+import { Basket } from "./../Basket/Basket.js";
 
 export class Pizza {
     id;
     name;
     topping;
     price;
+
     constructor(id, name, topping, price) {
         this.id = id;
         this.name = name;
@@ -14,16 +14,16 @@ export class Pizza {
         this.price = price;
     }
 
-    static async getProducts(domElementId, loaderId) {
+    static async renderProducts(domElementId, loaderId) {
         const pizzas = await pizzaApi.getPizzaInfo();
         document.getElementById(loaderId).remove();
         let pizzasOnDom = document.getElementById(domElementId);
-        pizzas.forEach((pizza, index) => {
+        pizzas.forEach(pizza => {
             pizzasOnDom.innerHTML += `
                             <div class="col-3">
                                 <div class="pizza-card my-3">
                                     <div class="card-image w-100">
-                                        <img src="assets/img/pizza (${index + 1}).png" alt="${pizza.name} pizza" class="ms-4 w-100">
+                                        <img src="assets/img/pizza (1).png" alt="${pizza.name} pizza" class="ms-4 w-100">
                                     </div>
                                         <div class="card-body">
                                             <span class="f-600">${pizza.name}</span>
@@ -41,11 +41,9 @@ export class Pizza {
                             `
         });
         Array.prototype.forEach.call(document.getElementsByClassName("card-add"), pizzaCard => {
-            pizzaCard.addEventListener('click', () => storage.setItem(keys.CART_BASKET, JSON.stringify(pizzaCard)));
+            const id = pizzaCard.getAttribute("data-id");
+            const pizza = pizzas.find(pizza => pizza.id == id);
+            pizzaCard.addEventListener('click', () => Basket.addToBasket(pizza));
         });
-    }
-
-    static addBasket() {
-        
     }
 }
